@@ -1,0 +1,18 @@
+# AppSpec file のバージョン(固定)
+version: 0.0
+
+# デプロイする Lambda 関数に関する情報を指定
+Resources:
+  - myLambdaFunction:
+      Type: AWS::Lambda::Function
+      Properties:
+        # name – 必須。これはデプロイする Lambda 関数の名前
+        Name: "lambda-url-everything-its-you"
+        # alias – 必須。これは Lambda 関数のエイリアスの名前
+        Alias: "alias-everything-"
+        # currentversion – 必須。
+        # トラフィックが現在指している Lambda 関数のバージョン
+        CurrentVersion: "1"
+        # targetversion – 必須。
+        # トラフィックの移行先の Lambda 関数のバージョン
+        TargetVersion: "2"
